@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat | Hacker Messenger</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="app-layout">
+        <aside class="sidebar" id="sidebar">
+            <header class="sidebar-header">
+                <button onclick="window.location.href='/home.html'">&lt; BACK</button>
+                <div id="chat-with-name">Operative</div>
+            </header>
+            <div class="sidebar-content">
+                <div style="padding: 20px; text-align: center;">
+                    <img id="chat-with-avatar" src="/uploads/default-avatar.png" class="avatar" style="width: 100px; height: 100px;">
+                    <h3 id="chat-with-username" style="margin-top: 10px;">@username</h3>
+                    <p id="chat-with-status" style="font-size: 0.8rem; color: var(--text-secondary);">offline</p>
+                </div>
+            </div>
+        </aside>
+
+        <main class="chat-area">
+            <header class="chat-header">
+                <button id="mobile-back" style="display: none;">BACK</button>
+                <img id="header-avatar" src="/uploads/default-avatar.png" class="avatar" alt="User">
+                <div style="margin-left: 15px;">
+                    <div id="header-name" style="font-weight: bold;">Operative Name</div>
+                    <div id="header-status" style="font-size: 0.7rem; color: var(--text-secondary);">offline</div>
+                </div>
+                <div style="margin-left: auto;">
+                    <button id="audio-call-btn">CALL</button>
+                </div>
+            </header>
+
+            <div id="messages" class="messages-container"></div>
+
+            <div id="typing-indicator" style="padding: 0 20px 5px; font-size: 0.7rem; color: var(--text-secondary); height: 15px;"></div>
+
+            <form id="message-form" class="message-input-area">
+                <button type="button" id="emoji-btn">😊</button>
+                <input type="text" id="message-input" placeholder="Enter secure message..." autocomplete="off">
+                <button type="button" id="voice-btn">🎤</button>
+                <button type="submit">SEND</button>
+            </form>
+        </main>
+    </div>
+    <script type="module" src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+    <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/simple-peer/9.11.1/simplepeer.min.js"></script>
+    <script type="module" src="/js/chat.js"></script>
+</body>
+</html>

@@ -1,0 +1,250 @@
+:root {
+  --bg-color: #0a0a0a;
+  --panel-bg: #121212;
+  --accent-color: #00ff41;
+  --text-primary: #00ff41;
+  --text-secondary: #008f11;
+  --border-color: #003b00;
+  --error-color: #ff0000;
+  --font-mono: 'Courier New', Courier, monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  height: 100vh;
+  overflow: hidden;
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+button {
+  background-color: transparent;
+  border: 1px solid var(--accent-color);
+  color: var(--accent-color);
+  padding: 8px 16px;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--accent-color);
+  color: var(--bg-color);
+  box-shadow: 0 0 10px var(--accent-color);
+}
+
+input {
+  background-color: #000;
+  border: 1px solid var(--border-color);
+  color: var(--accent-color);
+  padding: 10px;
+  font-family: var(--font-mono);
+  width: 100%;
+  outline: none;
+}
+
+input:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 5px var(--accent-color);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Auth Pages */
+.auth-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.auth-card {
+  background-color: var(--panel-bg);
+  border: 1px solid var(--border-color);
+  padding: 40px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 255, 65, 0.1);
+}
+
+.auth-card h1 {
+  margin-bottom: 20px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.error-message {
+  color: var(--error-color);
+  font-size: 0.8rem;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* Messenger Layout */
+.app-layout {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  height: 100vh;
+}
+
+.sidebar {
+  background-color: var(--panel-bg);
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-header {
+  padding: 20px;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sidebar-content {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.chat-area {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-color);
+}
+
+.chat-header {
+  padding: 15px 20px;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  background-color: var(--panel-bg);
+}
+
+.messages-container {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.message-input-area {
+  padding: 20px;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  gap: 10px;
+  background-color: var(--panel-bg);
+}
+
+/* Components */
+.user-item {
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  cursor: pointer;
+  transition: background 0.2s;
+  border-bottom: 1px solid rgba(0, 59, 0, 0.3);
+}
+
+.user-item:hover {
+  background-color: rgba(0, 255, 65, 0.05);
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--accent-color);
+  object-fit: cover;
+}
+
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #555;
+}
+
+.status-dot.online {
+  background-color: var(--accent-color);
+  box-shadow: 0 0 5px var(--accent-color);
+}
+
+.message {
+  max-width: 70%;
+  padding: 10px 15px;
+  border-radius: 5px;
+  position: relative;
+  font-size: 0.9rem;
+}
+
+.message.sent {
+  align-self: flex-end;
+  background-color: rgba(0, 255, 65, 0.1);
+  border: 1px solid var(--accent-color);
+}
+
+.message.received {
+  align-self: flex-start;
+  background-color: #1a1a1a;
+  border: 1px solid var(--border-color);
+}
+
+.message-time {
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  margin-top: 5px;
+  display: block;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .app-layout {
+    grid-template-columns: 1fr;
+  }
+  
+  .sidebar {
+    display: none;
+  }
+  
+  .sidebar.active {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+  }
+}
