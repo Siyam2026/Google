@@ -1,5 +1,0 @@
-{
-  "name": "Hacker Messenger",
-  "description": "A production-ready, full-stack real-time Messenger-style web application with a hacker-style dark theme.",
-  "requestFramePermissions": ["camera", "microphone"]
-}
